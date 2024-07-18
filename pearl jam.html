@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Heavy Metal Rock TV</title>
+    <title>Heavy Metal Rock TV - Pearl Jam</title>
     <link rel="icon" href="img/estetica/HMR_recortada-icono.ico">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="fonts/style.css">
@@ -20,7 +19,7 @@
             transition: background 1s ease;
             /* Transición suave para el cambio de fondo */
             background-color: #111;
-            ZOOM: 80%
+            zoom: 80%;
         }
 
         nav {
@@ -35,6 +34,7 @@
             align-items: center;
             left: 0;
             top: 0;
+
         }
 
         nav img {
@@ -80,84 +80,73 @@
             color: #fff;
         }
 
-        #inicio-content {
+        /* Agregamos estilos específicos para la tienda */
+        #tienda-content {
             margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        #inicio-content img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        #video-container {
-            position: relative;
-            overflow: hidden;
-            padding-top: 56.25%;
-            margin-bottom: 20px;
-        }
-
-        #youtube-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .rounded-box {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        #correo {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        #quienes-somos p {
-            text-align: justify;
-        }
-
-        #conciertos {
-            text-align: justify;
-        }
-
-        #bandas {
-            text-align: justify;
-        }
-
-        #dio-gustavo,
-        #HMRTV,
-        .band-logo,
-        #logos-bm,
-        #concierto,
-        #correo {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin: 10px auto;
-            /* Centro la imagen */
-            display: block;
-            /* Para centrar la imagen */
+        .producto {
+            width: 300px;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border: (0, 0, 0, 0.5);
             transition: transform 0.3s ease-in-out;
         }
 
-        #dio-gustavo:hover,
-        #HMRTV:hover,
-        .band-logo:hover,
-        #logos-bm:hover,
-        #concierto:hover,
-        #correo:hover {
-            transform: scale(1.1);
+        .producto:hover {
+            transform: scale(1.05);
         }
 
-        #contactanos {
+        .producto img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .producto h3 {
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .producto p {
+            color: #ccc;
+        }
+
+        .ir_a_ver {
+            background-color: #666;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .ir_a_ver:hover {
+            background-color: #333;
+        }
+
+        #store {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            /* Sombra más pronunciada */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #store:hover {
+            transform: scale(1.1);
+            /* Efecto de escala al pasar el ratón */
+        }
+
+        #contenido {
             text-align: justify;
-            /* Centrar el contenido del bloque */
         }
 
         #correo-button {
@@ -288,8 +277,12 @@
             background-color: #333;
         }
 
-        #texto {
+        #descrip {
             text-align: justify;
+        }
+
+        #titulo {
+            text-align: center;
         }
 
         .nav-links {
@@ -369,6 +362,11 @@
                 background-color: #333;
                 color: #fff;
             }
+
+            .ir_a_ver {
+                display: none;
+                /* Oculta el botón en dispositivos móviles */
+            }
         }
 
         @media screen and (min-width: 1200px) {
@@ -403,7 +401,7 @@
                 <button onclick="nextSong()"><span class="icon-last"></span></button>
             </div>
 
-            <div id="song-list-container">
+            <div id="song-list-container" style="display: none;">
                 <ul>
                     <li onclick="playSong('music/Cannibal Corpse - Evisceration Plague.mp3')">
                         Cannibal Corpse - Evisceration Plague</li>
@@ -442,100 +440,28 @@
             <a href="youtube.html">Canal de Youtube</a>
             <a href="Emisora.html">Emisora</a>
             <a href="VENTA BOLETOS.html">Venta Boletos </a>
-
         </div>
     </nav>
 
     <main>
-        <section id="inicio">
-            <h1> Heavy Metal Rock TV</h1>
-            <div id="inicio-content">
-                <img id="dio-gustavo" src="img/estetica/diogustavo.jpg" alt="Black Metal Band">
-                <p id="texto">
-
-                <p id="texto">
-                    Bienvenido a la experiencia definitiva,
-                    Somos Heavy Metal Rock Tv, un grupo de personas que amamos los géneros Black Metal, Hard Rock, Heavy
-                    Metal, Power Metal, Glam Metal, Thrash Metal, Death Metal, Death Core, Metal Core, Nu Metal, Doom
-                    Metal,
-                    Industry Metal, Speed Metal, Hard Core y todos los generos bienvenidos dentro del mundo del Metal
-                    Sumérgete en la oscuridad y la intensidad de
-                    la música que desafía los límites.
-                    Descubre las bandas más extremas, explora conciertos inolvidables y conoce la cultura única que
-                    rodea la escena Metal.
-                </p>
-                <p id="texto">
-                    En Heavy Metal Rock TV, nos apasiona compartir la potencia y la profundidad de la escena Metal.
-                    Únete a
-                    nosotros en este viaje sonoro
-                    y visual a través de un género que va más allá de la música, es una experiencia de vida.
-                </p>
-                <div>
-                    <video width="100%" controls
-                        style="max-width: 100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); margin-top: 20px;">
-                        <source src="video/presentacion_pagina web.mp4" type="video/mp4">
-                    </video>
+        <section id="tienda">
+            <h1 id="titulo">Pearl Jam</h1>
+            <div id="tienda-content">
+                <div class="producto">
+                    <img src="img/polos/pearl jam_1.jpg" alt="Logo de Banda 1">
+                    <h3>Pearl Jam</h3>
+                    <p id="descrip">"Polos de metal: poder y estilo en cada género. ¡Viste tu pasión con actitud!"</p>
+                    <p id="titulo">DISPONIBLE EN TODAS LAS TALLAS</p>
+                    <a class="ir_a_ver" href="https://www.facebook.com/messages/t/237237610145098" target="_blank">HACER
+                        PEDIDO</a>
                 </div>
             </div>
+
+
         </section>
 
-        <section id="quienes-somos">
-            <h2>¿Quiénes Somos?</h2>
-            <p>Somos Heavy Metal Rock Tv, un grupo de personas que amamos los géneros Black Metal, Hard Rock, Heavy
-                Metal, Power Metal, Glam Metal, Thrash Metal, Death Metal, Death Core, Metal Core, Nu Metal, Doom Metal,
-                Industry Metal, Speed Metal, Hard Core y todos los generos bienbenidos dentro del mundo del Metal. Nos
-                enfocamos en difundir la cultura oscura y fomentar la expresión artística mediante la música extrema.
-                Nuestro objetivo principal es compartir nuestra pasión con otros amantes de este estilo musical y
-                brindarles una plataforma para conocer y disfrutar de bandas que se dedican a estos géneros. Estamos
-                comprometidos en apoyar y promover la escena Metal, así como también en educar a aquellos que quieran
-                adentrarse en este mundo fascinante y en ocasiones incomprendido. A través de nuestro canal de difusion
-                en youtube y radio online, nos esforzamos por proporcionar entrevistas, reseñas de álbumes, conciertos y
-                noticias relevantes, para mantener a nuestros seguidores actualizados y sumergidos en la emocionante
-                atmósfera del Metal Extremo. Creemos que esta forma de arte extremo tiene mucho que ofrecer y deseamos
-                compartirlo con todos aquellos que comparten nuestra pasión por la música oscura y poderosa. ¡Únete a
-                nosotros y descubre la intensidad y pasion del Metal!.</p>
-            <img class="band-logo" src="img/estetica/ROCKTV.png" alt="">
-            <!-- Agrega más información sobre tu proyecto o comunidad -->
-        </section>
-
-        <section id="bandas">
-            <h2>Bandas Destacadas</h2>
-            <p>Descubre aquí algunas de las bandas más influyentes y poderosas en el género. El Metal es caracterizado
-                por su sonido agresivo y enérgico. Las bandas que te
-                presentaremos han dejado huella en la escena musical y han influenciado a muchas otras en su género.
-                Prepárate para sumergirte en un mundo sonoro lleno de intensidad y potencia.</p>
-            <img id="logos-bm" src="img/estetica/collage1.jpg" alt="">
-            <img id="logos-bm" src="img/estetica/collage2.jpg" alt="">
-
-            <!-- Agrega contenido relacionado con las bandas -->
-        </section>
-
-        <section id="conciertos">
-            <h2>Próximos Conciertos</h2>
-            <p>No te olvides de echarle un vistazo a los emocionantes conciertos que están por llegar y que causarán una
-                verdadera revolución en el mundo del Metal. Los podrás disfrutar en exclusiva en Heavy Metal Rock
-                Tv. No pierdas la oportunidad de sumergirte en esta experiencia única y sentir la energía arrolladora de
-                la música que te hará vibrar.</p>
-            <img id="concierto" src="img/estetica/concierto1.jpg" alt="">
-            <img id="concierto" src="img/estetica/concierto2.jpg" alt="">
-            <img id="concierto" src="img/estetica/concierto3.jpg" alt="">
-            <!-- Agrega información sobre los conciertos -->
-        </section>
-
-        <section id="contactanos">
-            <h2>Contactanos</h2>
-            <p>Aquí te proporcionamos nuestra dirección de correo electrónico oficial para mantenernos en contacto y
-                poder comunicarnos fácilmente. No dudes en contactarnos a través de este correo si necesitas algo o
-                tienes alguna pregunta. ¡Estamos aquí para ayudarte!</p>
-            <img id="correo" src="img/estetica/correo.jpg" alt="">
-        </section>
-
-        <section>
-            <button id="correo-button" onclick="window.location.href='mailto:gustavomasacre31@hotmail.'">NUESTRO
-                CORREO</button>
-        </section>
-        </section>
     </main>
+
     <script async src="js/menu.js"></script>
 </body>
 

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Metal Rock TV - Emisora</title>
+    <link rel="icon" href="img/estetica/HMR_recortada-icono.ico">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/style.css">
+    <script async src="js/menu.js"></script>
+    <style>
+        body {
+            /* Mantén los estilos existentes para el fondo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            transition: background 1s ease;
+            /* Transición suave para el cambio de fondo */
+            background-color: #111;
+            zoom: 80%;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #000000;
+            padding: 20px;
+            height: 200vh;
+            width: 200px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            left: 0;
+            top: 0;
+        }
+
+        nav img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #666;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #666;
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1,
+        h2,
+        p {
+            color: #fff;
+        }
+
+        #quienes-somos {
+            text-align: justify;
+        }
+
+        #emisora {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #producciones {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #producciones:hover {
+            transform: scale(1.1);
+        }
+
+        #emisora p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        button {
+            background-color: #666;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+
+        button {
+            background-color: #666;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        #emisora {
+            text-align: justify;
+        }
+
+        #boton {
+            background-color: #666;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+            margin: 10px auto;
+            /* Centrar el botón horizontalmente */
+            display: block;
+        }
+
+        #boton:hover {
+            background-color: #333;
+        }
+
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 1200px) {
+
+            body {
+                flex-direction: column;
+                /* Cambia a disposición vertical */
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                position: relative;
+                padding: 10px 0;
+                flex-direction: column;
+            }
+
+            nav img {
+                max-width: 80%;
+                /* Ajusta el ancho de la imagen según tus necesidades */
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: 10px;
+                display: none;
+                /* Oculta la lista de enlaces por defecto */
+            }
+
+            nav a {
+                width: auto;
+                display: inline-block;
+                margin: 0 10px;
+                padding: 8px 12px;
+                border-bottom: none;
+                transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            }
+
+            nav a:hover {
+                background-color: #666;
+                color: #fff;
+            }
+
+            #music-player-container {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+                background-color: #666;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 12px 0;
+                /* Ajusta el padding vertical a tu preferencia */
+                cursor: pointer;
+                font-size: 16px;
+                margin: 10px 0;
+                /* Ajusta el margen vertical a tu preferencia */
+                width: 100%;
+                /* Cubre todo el ancho disponible */
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .menu-btn:hover {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+
+            .nav-links {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <img id="HMRTV" src="img/estetica/HMRTV.jpg" alt="Logo">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="TIENDA.html">Tienda</a>
+            <a href="youtube.html">Canal de Youtube</a>
+            <a href="Emisora.html">Emisora</a>
+            <a href="VENTA BOLETOS.html">Venta Boletos </a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="emisora">
+            <h2>Emisora</h2>
+            <img id="producciones" src="img/estetica/HMR_APP.jpg" alt="Estudio de Emisora">
+            <p>
+                Descubre la emisora Heavy Metal Radio, donde transmitimos las mejores selecciones del Metal en los
+                horarios correspondientes. Sumérgete en la atmósfera oscura y potente de la música que amamos. Nuestra
+                emisora es
+                el lugar perfecto para explorar nuevas bandas, disfrutar de clásicos del género y mantenerte actualizado
+                con las últimas novedades en el mundo del Metal.
+            </p>
+
+            <h3 style="text-align: center; color: red;"> Lunes, Martes, Miercoles, Jueves, Viernes</h3>
+            <h3 style="text-align: center;color: red;">11:00 am - 1:00 pm / 4:30 pm - 6:00 pm / 9:00 pm - 10:30 pm</h3>
+            <p></p>
+
+            <section>
+                <button id="boton"
+                    onclick="window.location.href='http://heavymetalextremo.radio12345.com'">EMISORA</button>
+            </section>
+
+
+        </section>
+    </main>
+</body>
+
+</html>
