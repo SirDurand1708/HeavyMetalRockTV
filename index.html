@@ -1,1 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Heavy Metal Rock TV</title>
+    <link rel="icon" href="img/estetica/HMR_recortada-icono.ico">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/style.css">
+    <style>
+        body {
+            /* Mantén los estilos existentes para el fondo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            transition: background 1s ease;
+            /* Transición suave para el cambio de fondo */
+            background-color: #111;
+            ZOOM: 80%
+        }
+
+        nav {
+            text-align: center;
+            background-color: #000000;
+            padding: 20px;
+            height: 200vh;
+            width: 200px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            left: 0;
+            top: 0;
+        }
+
+        nav img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #666;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #666;
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Fondo oscuro para mejorar la legibilidad del contenido */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1,
+        h2,
+        p {
+            color: #fff;
+        }
+
+        #inicio-content {
+            margin-top: 20px;
+        }
+
+        #inicio-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #video-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%;
+            margin-bottom: 20px;
+        }
+
+        #youtube-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rounded-box {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #correo {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #quienes-somos p {
+            text-align: justify;
+        }
+
+        #conciertos {
+            text-align: justify;
+        }
+
+        #bandas {
+            text-align: justify;
+        }
+
+        #dio-gustavo,
+        #HMRTV,
+        .band-logo,
+        #logos-bm,
+        #concierto,
+        #correo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 10px auto;
+            /* Centro la imagen */
+            display: block;
+            /* Para centrar la imagen */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #dio-gustavo:hover,
+        #HMRTV:hover,
+        .band-logo:hover,
+        #logos-bm:hover,
+        #concierto:hover,
+        #correo:hover {
+            transform: scale(1.1);
+        }
+
+        #contactanos {
+            text-align: justify;
+            /* Centrar el contenido del bloque */
+        }
+
+        #correo-button {
+            background-color: #666;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+            margin: 10px auto;
+            /* Centrar el botón horizontalmente */
+            display: block;
+        }
+
+        #correo-button:hover {
+            background-color: #333;
+        }
+
+        #music-player-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        #music-player-button {
+            background-color: #666;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 80px;
+            /* Ajusta el ancho del botón según tus necesidades */
+            height: 80px;
+            /* Ajusta la altura del botón según tus necesidades */
+            overflow: hidden;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #music-player-button img {
+            width: 100%;
+        }
+
+        #music-player {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 10px;
+            width: 500px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            text-align: center;
+        }
+
+        #song-list-container {
+            margin-top: 10px;
+            overflow: auto;
+            display: none;
+        }
+
+        #song-list-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #song-list-container li {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        #song-list-container li:hover {
+            background-color: #444;
+            color: #fff;
+        }
+
+        #album-art {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        #song-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #album-art-small {
+            width: 100%;
+            max-height: 600px;
+            /* Cambia el valor según tus necesidades */
+            object-fit: contain;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        #audio-player {
+            width: 100%;
+            /* Cambiado de 80% a 100% para cubrir todo el ancho */
+            margin: 10px auto;
+            /* Ajusta el margen según tus necesidades */
+        }
+
+        /* Resto del código CSS sigue igual */
+
+        button {
+            background-color: #666;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        #texto {
+            text-align: justify;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 1200px) {
+
+            body {
+                flex-direction: column;
+                /* Cambia a disposición vertical */
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                position: relative;
+                padding: 10px 0;
+                flex-direction: column;
+            }
+
+            nav img {
+                max-width: 80%;
+                /* Ajusta el ancho de la imagen según tus necesidades */
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: 10px;
+                display: none;
+                /* Oculta la lista de enlaces por defecto */
+            }
+
+            nav a {
+                width: auto;
+                display: inline-block;
+                margin: 0 10px;
+                padding: 8px 12px;
+                border-bottom: none;
+                transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            }
+
+            nav a:hover {
+                background-color: #666;
+                color: #fff;
+            }
+
+            #music-player-container {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+                background-color: #666;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 12px 0;
+                /* Ajusta el padding vertical a tu preferencia */
+                cursor: pointer;
+                font-size: 16px;
+                margin: 10px 0;
+                /* Ajusta el margen vertical a tu preferencia */
+                width: 100%;
+                /* Cubre todo el ancho disponible */
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .menu-btn:hover {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+
+            .nav-links {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="music-player-container">
+        <div id="music-player-button" onclick="toggleMusicPlayer()">
+            <img src="img/estetica/dio_boton.jpg" alt="Reproductor de música">
+        </div>
+        <div id="music-player">
+            <div id="song-info">
+                <h3 id="current-song">Canción Actual</h3>
+                <img id="album-art-small" src="" alt="Album Art">
+            </div>
+            <audio id="audio-player" controls></audio>
+            <div>
+                <button onclick="prevSong()"><span class="icon-first"></span></button>
+                <button onclick="togglePlayPause()"><span class="icon-play3"></span></button>
+                <button onclick="nextSong()"><span class="icon-last"></span></button>
+            </div>
+
+            <div id="song-list-container">
+                <ul>
+                    <li onclick="playSong('music/Cannibal Corpse - Evisceration Plague.mp3')">
+                        Cannibal Corpse - Evisceration Plague</li>
+                    <li onclick="playSong('music/Ozzy Osbourne - Crazy Train.mp3')">Ozzy
+                        Osbourne - Crazy Train</li>
+                    <li onclick="playSong('music/Dio - Rainbow In The Dark.mp3')">Dio -
+                        Rainbow In The Dark</li>
+                    <li onclick="playSong('music/Judas Priest - Trial By Fire.mp3')">Judas
+                        Priest - Trial By Fire</li>
+                    <li onclick="playSong('music/Anthrax - Keep It In The Family.mp3')">
+                        Anthrax - Keep It In The Family</li>
+                    <li onclick="playSong('music/Dio - Another Lie.mp3')">Dio - Another Lie
+                    </li>
+                    <li onclick="playSong('music/Nightwish - Bless The Child.mp3')">
+                        Nightwish - Bless The Child</li>
+                    <li onclick="playSong('music/Cradle Of Filth - Cruelty Brought Thee Orchids.mp3')">
+                        Cradle Of Filth - Cruelty Brought Thee Orchids</li>
+                    <li onclick="playSong('music/SLAUGHTER TO PREVAIL - Bratva.mp3')">
+                        SLAUGHTER TO PREVAIL - Bratva</li>
+                </ul>
+            </div>
+
+            <div>
+                <button onclick="toggleSongList()"><span class="icon-paragraph-justify"></span></button>
+            </div>
+
+        </div>
+    </div>
+
+    <nav>
+        <img id="HMRTV" src="img/estetica/HMRTV.jpg" alt="Logo">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="TIENDA.html">Tienda</a>
+            <a href="youtube.html">Canal de Youtube</a>
+            <a href="Emisora.html">Emisora</a>
+            <a href="VENTA BOLETOS.html">Venta Boletos </a>
+
+        </div>
+    </nav>
+
+    <main>
+        <section id="inicio">
+            <h1> Heavy Metal Rock TV</h1>
+            <div id="inicio-content">
+                <img id="dio-gustavo" src="img/estetica/diogustavo.jpg" alt="Black Metal Band">
+                <p id="texto">
+
+                <p id="texto">
+                    Bienvenido a la experiencia definitiva,
+                    Somos Heavy Metal Rock Tv, un grupo de personas que amamos los géneros Black Metal, Hard Rock, Heavy
+                    Metal, Power Metal, Glam Metal, Thrash Metal, Death Metal, Death Core, Metal Core, Nu Metal, Doom
+                    Metal,
+                    Industry Metal, Speed Metal, Hard Core y todos los generos bienvenidos dentro del mundo del Metal
+                    Sumérgete en la oscuridad y la intensidad de
+                    la música que desafía los límites.
+                    Descubre las bandas más extremas, explora conciertos inolvidables y conoce la cultura única que
+                    rodea la escena Metal.
+                </p>
+                <p id="texto">
+                    En Heavy Metal Rock TV, nos apasiona compartir la potencia y la profundidad de la escena Metal.
+                    Únete a
+                    nosotros en este viaje sonoro
+                    y visual a través de un género que va más allá de la música, es una experiencia de vida.
+                </p>
+                <div>
+                    <video width="100%" controls
+                        style="max-width: 100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); margin-top: 20px;">
+                        <source src="video/presentacion_pagina web.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="quienes-somos">
+            <h2>¿Quiénes Somos?</h2>
+            <p>Somos Heavy Metal Rock Tv, un grupo de personas que amamos los géneros Black Metal, Hard Rock, Heavy
+                Metal, Power Metal, Glam Metal, Thrash Metal, Death Metal, Death Core, Metal Core, Nu Metal, Doom Metal,
+                Industry Metal, Speed Metal, Hard Core y todos los generos bienbenidos dentro del mundo del Metal. Nos
+                enfocamos en difundir la cultura oscura y fomentar la expresión artística mediante la música extrema.
+                Nuestro objetivo principal es compartir nuestra pasión con otros amantes de este estilo musical y
+                brindarles una plataforma para conocer y disfrutar de bandas que se dedican a estos géneros. Estamos
+                comprometidos en apoyar y promover la escena Metal, así como también en educar a aquellos que quieran
+                adentrarse en este mundo fascinante y en ocasiones incomprendido. A través de nuestro canal de difusion
+                en youtube y radio online, nos esforzamos por proporcionar entrevistas, reseñas de álbumes, conciertos y
+                noticias relevantes, para mantener a nuestros seguidores actualizados y sumergidos en la emocionante
+                atmósfera del Metal Extremo. Creemos que esta forma de arte extremo tiene mucho que ofrecer y deseamos
+                compartirlo con todos aquellos que comparten nuestra pasión por la música oscura y poderosa. ¡Únete a
+                nosotros y descubre la intensidad y pasion del Metal!.</p>
+            <img class="band-logo" src="img/estetica/ROCKTV.png" alt="">
+            <!-- Agrega más información sobre tu proyecto o comunidad -->
+        </section>
+
+        <section id="bandas">
+            <h2>Bandas Destacadas</h2>
+            <p>Descubre aquí algunas de las bandas más influyentes y poderosas en el género. El Metal es caracterizado
+                por su sonido agresivo y enérgico. Las bandas que te
+                presentaremos han dejado huella en la escena musical y han influenciado a muchas otras en su género.
+                Prepárate para sumergirte en un mundo sonoro lleno de intensidad y potencia.</p>
+            <img id="logos-bm" src="img/estetica/collage1.jpg" alt="">
+            <img id="logos-bm" src="img/estetica/collage2.jpg" alt="">
+
+            <!-- Agrega contenido relacionado con las bandas -->
+        </section>
+
+        <section id="conciertos">
+            <h2>Próximos Conciertos</h2>
+            <p>No te olvides de echarle un vistazo a los emocionantes conciertos que están por llegar y que causarán una
+                verdadera revolución en el mundo del Metal. Los podrás disfrutar en exclusiva en Heavy Metal Rock
+                Tv. No pierdas la oportunidad de sumergirte en esta experiencia única y sentir la energía arrolladora de
+                la música que te hará vibrar.</p>
+            <img id="concierto" src="img/estetica/concierto1.jpg" alt="">
+            <img id="concierto" src="img/estetica/concierto2.jpg" alt="">
+            <img id="concierto" src="img/estetica/concierto3.jpg" alt="">
+            <!-- Agrega información sobre los conciertos -->
+        </section>
+
+        <section id="contactanos">
+            <h2>Contactanos</h2>
+            <p>Aquí te proporcionamos nuestra dirección de correo electrónico oficial para mantenernos en contacto y
+                poder comunicarnos fácilmente. No dudes en contactarnos a través de este correo si necesitas algo o
+                tienes alguna pregunta. ¡Estamos aquí para ayudarte!</p>
+            <img id="correo" src="img/estetica/correo.jpg" alt="">
+        </section>
+
+        <section>
+            <button id="correo-button" onclick="window.location.href='mailto:gustavomasacre31@hotmail.'">NUESTRO
+                CORREO</button>
+        </section>
+        </section>
+    </main>
+    <script async src="js/menu.js"></script>
+</body>
+
+</html>
